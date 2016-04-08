@@ -314,6 +314,7 @@
 
 - (void)didResignFirstResponder:(XCLInputTextView *)inputTextView
 {
+    self.pri_isShowKeyboard = NO;
     if ([self.pri_child respondsToSelector:@selector(didHideKeyboard)]) {
         [self.pri_child didHideKeyboard];
     }
