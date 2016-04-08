@@ -19,6 +19,9 @@
 		8E5C5D5E1CB779A600C5BB40 /* DMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D5D1CB779A600C5BB40 /* DMTableViewController.m */; };
 		8E5C5D611CB779BE00C5BB40 /* DMSelectAtStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D601CB779BE00C5BB40 /* DMSelectAtStringViewController.m */; };
 		8E5C5D641CB779EB00C5BB40 /* DMSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D631CB779EB00C5BB40 /* DMSimpleViewController.m */; };
+		8E5C5D681CB77B5700C5BB40 /* DMComplexInputWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D661CB77B5700C5BB40 /* DMComplexInputWrapperView.m */; };
+		8E5C5D691CB77B5700C5BB40 /* DMComplexInputWrapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C5D671CB77B5700C5BB40 /* DMComplexInputWrapperView.xib */; };
+		8E5C5D6C1CB77B8300C5BB40 /* DMComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D6B1CB77B8300C5BB40 /* DMComplexViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,11 @@
 		8E5C5D601CB779BE00C5BB40 /* DMSelectAtStringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSelectAtStringViewController.m; sourceTree = "<group>"; };
 		8E5C5D621CB779EB00C5BB40 /* DMSimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMSimpleViewController.h; sourceTree = "<group>"; };
 		8E5C5D631CB779EB00C5BB40 /* DMSimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMSimpleViewController.m; sourceTree = "<group>"; };
+		8E5C5D651CB77B5700C5BB40 /* DMComplexInputWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMComplexInputWrapperView.h; sourceTree = "<group>"; };
+		8E5C5D661CB77B5700C5BB40 /* DMComplexInputWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMComplexInputWrapperView.m; sourceTree = "<group>"; };
+		8E5C5D671CB77B5700C5BB40 /* DMComplexInputWrapperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMComplexInputWrapperView.xib; sourceTree = "<group>"; };
+		8E5C5D6A1CB77B8300C5BB40 /* DMComplexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMComplexViewController.h; sourceTree = "<group>"; };
+		8E5C5D6B1CB77B8300C5BB40 /* DMComplexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMComplexViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,11 @@
 				8E5C5D601CB779BE00C5BB40 /* DMSelectAtStringViewController.m */,
 				8E5C5D621CB779EB00C5BB40 /* DMSimpleViewController.h */,
 				8E5C5D631CB779EB00C5BB40 /* DMSimpleViewController.m */,
+				8E5C5D651CB77B5700C5BB40 /* DMComplexInputWrapperView.h */,
+				8E5C5D661CB77B5700C5BB40 /* DMComplexInputWrapperView.m */,
+				8E5C5D671CB77B5700C5BB40 /* DMComplexInputWrapperView.xib */,
+				8E5C5D6A1CB77B8300C5BB40 /* DMComplexViewController.h */,
+				8E5C5D6B1CB77B8300C5BB40 /* DMComplexViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -187,6 +200,7 @@
 				8E5C5D461CB777E600C5BB40 /* LaunchScreen.storyboard in Resources */,
 				8E5C5D431CB777E600C5BB40 /* Assets.xcassets in Resources */,
 				8E5C5D411CB777E600C5BB40 /* Main.storyboard in Resources */,
+				8E5C5D691CB77B5700C5BB40 /* DMComplexInputWrapperView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +219,9 @@
 				8E5C5D381CB777E600C5BB40 /* main.m in Sources */,
 				8E5C5D611CB779BE00C5BB40 /* DMSelectAtStringViewController.m in Sources */,
 				8E5C5D571CB7786B00C5BB40 /* XCLSimpleInputWrapperView.m in Sources */,
+				8E5C5D6C1CB77B8300C5BB40 /* DMComplexViewController.m in Sources */,
 				8E5C5D641CB779EB00C5BB40 /* DMSimpleViewController.m in Sources */,
+				8E5C5D681CB77B5700C5BB40 /* DMComplexInputWrapperView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

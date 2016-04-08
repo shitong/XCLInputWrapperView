@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DMSimpleViewController.h"
+#import "DMComplexViewController.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,9 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             DMSimpleViewController *controller = [[DMSimpleViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        } else if (indexPath.row == 1) {
+            DMComplexViewController *controller = [[DMComplexViewController alloc] init];
             [self.navigationController pushViewController:controller animated:YES];
         }
     }
