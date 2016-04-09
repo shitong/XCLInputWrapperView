@@ -8,7 +8,6 @@
 
 #import "XCLSimpleInputWrapperView.h"
 #import "XCLInputWrapperViewSubclass.h"
-#import "XCLInputTextView.h"
 
 @interface XCLSimpleInputWrapperView () <XCLInputWrapperViewInterface>
 
@@ -35,9 +34,26 @@
     return self.simpleInputBarView;
 }
 
-- (XCLInputTextView *)inputTextView
+- (UITextView *)inputTextView
 {
-    XCLInputTextView *inputTextView = [[XCLInputTextView alloc] init];
+    UITextView *inputTextView = [[UITextView alloc] init];
+    inputTextView.backgroundColor = [UIColor whiteColor];
+    inputTextView.layer.cornerRadius = 5;
+    inputTextView.layer.borderWidth = 0.5;
+    inputTextView.layer.borderColor = [UIColor colorWithRed:178/255.0 green:178/255.0 blue:178/255.0 alpha:1].CGColor;
+    inputTextView.backgroundColor = [UIColor clearColor];
+    inputTextView.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1];
+    inputTextView.font = [UIFont systemFontOfSize:16];
+    inputTextView.returnKeyType = UIReturnKeySend;
+    
+    UIEdgeInsets insets = inputTextView.textContainerInset;
+    insets.left = 8;
+    insets.right = 8;
+    [inputTextView setTextContainerInset:insets];
+    [inputTextView setContentInset:UIEdgeInsetsZero];
+    
+    
+    
     inputTextView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.simpleInputBarView addSubview:inputTextView];
     

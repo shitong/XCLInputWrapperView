@@ -8,14 +8,13 @@
 
 #import "XCLInputWrapperView.h"
 #import "XCLInputWrapperViewSubclass.h"
-#import "XCLInputTextView.h"
 
-@interface XCLInputWrapperView () <XCLInputTextViewDelegate>
+@interface XCLInputWrapperView () <UITextViewDelegate>
 
 @property (nonatomic, strong) UITapGestureRecognizer *pri_tapGestureRecognizer;
 @property (nonatomic, strong) UIView                 *pri_backView;
 @property (nonatomic, strong) UIView                 *pri_inputBarView;
-@property (nonatomic, strong) XCLInputTextView       *pri_inputTextView;
+@property (nonatomic, strong) UITextView             *pri_inputTextView;
 
 @property (nonatomic, strong) NSLayoutConstraint     *pri_inputBarViewBottomConstraint;
 @property (nonatomic, strong) NSLayoutConstraint     *pri_inputTextViewHeightConstraint;
@@ -44,12 +43,14 @@
     if (self) {
         [self defaultConfig];
         
-        _pri_child                    = (id<XCLInputWrapperViewInterface>)self;
-        _pri_backView                 = [[UIView alloc] init];
-        _pri_backView.backgroundColor = _customInputViewBackViewBackgroundColor;
-        _pri_inputBarView             = [_pri_child inputBarView];
-        _pri_inputTextView            = [_pri_child inputTextView];
-        _pri_inputTextView.delegate   = self;
+        _pri_child                      = (id<XCLInputWrapperViewInterface>)self;
+        _pri_backView                   = [[UIView alloc] init];
+        _pri_backView.backgroundColor   = _customInputViewBackViewBackgroundColor;
+        _pri_inputBarView               = [_pri_child inputBarView];
+        _pri_inputTextView              = [_pri_child inputTextView];
+        _pri_inputTextView.delegate     = self;
+        _pri_inputTextView.scrollsToTop = NO;
+        _pri_inputTextView.layoutManager.allowsNonContiguousLayout = NO;
         
         [superview addSubview:self];
         [self addSubview:_pri_backView];
@@ -90,6 +91,7 @@
     [self addObserver:self forKeyPath:@"frame" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"center" options:kNilOptions context:NULL];
     [self addObserver:self forKeyPath:@"bounds" options:kNilOptions context:NULL];
+    [self.pri_inputTextView addObserver:self forKeyPath:@"contentSize" options:kNilOptions context:NULL];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -99,6 +101,7 @@
     [self removeObserver:self forKeyPath:@"frame"];
     [self removeObserver:self forKeyPath:@"center"];
     [self removeObserver:self forKeyPath:@"bounds"];
+    [self.pri_inputTextView removeObserver:self forKeyPath:@"contentSize"];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
@@ -246,6 +249,20 @@
                 [self.delegate inputWrapperView:self heightDidChanged:CGRectGetHeight(self.bounds)];
             }
         }
+    } else if ([object isEqual:self.pri_inputTextView]) {
+        if ([keyPath isEqualToString:@"contentSize"]) {
+            CGFloat contentHeight = self.pri_inputTextView.contentSize.height;
+            CGFloat boundsHeight  = self.pri_inputTextView.bounds.size.height;
+            
+            if (boundsHeight == contentHeight) {
+                return;
+            }
+            
+            if (self.pri_isInputTextViewHeightFixed) {
+                return;
+            }
+            [self setInputTextViewHeight:contentHeight];
+        }
     } else if ([object isEqual:self.cancelOnDragScrollView]) {
         if ((self.pri_isShowKeyboard || self.pri_isShowCustomInputView) && self.cancelOnDragScrollView.tracking) {
             [self onHideAll];
@@ -274,17 +291,18 @@
     [self layoutBarViewWithBottomInset:0];
 }
 
-#pragma mark - XCLInputTextViewDelegate
+#pragma mark - UITextViewDelegate
 
-- (void)inputTextView:(XCLInputTextView *)inputTextView contentHeightDidChanged:(CGFloat)height boundsHeight:(CGFloat)boundsHeight
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
-    if (self.pri_isInputTextViewHeightFixed) {
-        return;
+    if ([self.delegate respondsToSelector:@selector(inputWrapperViewShouldBeginInputing:)]) {
+        return [self.delegate inputWrapperViewShouldBeginInputing:self];
+    } else {
+        return YES;
     }
-    [self setInputTextViewHeight:height];
 }
 
-- (void)didBecomeFirstResponder:(XCLInputTextView *)inputTextView
+- (void)textViewDidBeginEditing:(UITextView *)textView
 {
     if (self.pri_isShowCustomInputView) {
         // 弹出键盘后，需要设置pri_isShowCustomInputView为NO
@@ -312,7 +330,7 @@
     }
 }
 
-- (void)didResignFirstResponder:(XCLInputTextView *)inputTextView
+- (void)textViewDidEndEditing:(UITextView *)textView
 {
     self.pri_isShowKeyboard = NO;
     if ([self.pri_child respondsToSelector:@selector(didHideKeyboard)]) {
@@ -321,15 +339,6 @@
     
     if ([self.delegate respondsToSelector:@selector(inputWrapperViewDidHideKeyboard:)]) {
         [self.delegate inputWrapperViewDidHideKeyboard:self];
-    }
-}
-
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
-    if ([self.delegate respondsToSelector:@selector(inputWrapperViewShouldBeginInputing:)]) {
-        return [self.delegate inputWrapperViewShouldBeginInputing:self];
-    } else {
-        return YES;
     }
 }
 

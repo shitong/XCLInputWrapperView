@@ -13,7 +13,6 @@
 		8E5C5D411CB777E600C5BB40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C5D3F1CB777E600C5BB40 /* Main.storyboard */; };
 		8E5C5D431CB777E600C5BB40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C5D421CB777E600C5BB40 /* Assets.xcassets */; };
 		8E5C5D461CB777E600C5BB40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5C5D441CB777E600C5BB40 /* LaunchScreen.storyboard */; };
-		8E5C5D551CB7786B00C5BB40 /* XCLInputTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D4F1CB7786B00C5BB40 /* XCLInputTextView.m */; };
 		8E5C5D561CB7786B00C5BB40 /* XCLInputWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D511CB7786B00C5BB40 /* XCLInputWrapperView.m */; };
 		8E5C5D571CB7786B00C5BB40 /* XCLSimpleInputWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D541CB7786B00C5BB40 /* XCLSimpleInputWrapperView.m */; };
 		8E5C5D5E1CB779A600C5BB40 /* DMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5C5D5D1CB779A600C5BB40 /* DMTableViewController.m */; };
@@ -35,8 +34,6 @@
 		8E5C5D421CB777E600C5BB40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E5C5D451CB777E600C5BB40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E5C5D471CB777E600C5BB40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E5C5D4E1CB7786B00C5BB40 /* XCLInputTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLInputTextView.h; sourceTree = "<group>"; };
-		8E5C5D4F1CB7786B00C5BB40 /* XCLInputTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLInputTextView.m; sourceTree = "<group>"; };
 		8E5C5D501CB7786B00C5BB40 /* XCLInputWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLInputWrapperView.h; sourceTree = "<group>"; };
 		8E5C5D511CB7786B00C5BB40 /* XCLInputWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLInputWrapperView.m; sourceTree = "<group>"; };
 		8E5C5D521CB7786B00C5BB40 /* XCLInputWrapperViewSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLInputWrapperViewSubclass.h; sourceTree = "<group>"; };
@@ -111,8 +108,6 @@
 		8E5C5D4D1CB7786B00C5BB40 /* XCLInputWrapperView */ = {
 			isa = PBXGroup;
 			children = (
-				8E5C5D4E1CB7786B00C5BB40 /* XCLInputTextView.h */,
-				8E5C5D4F1CB7786B00C5BB40 /* XCLInputTextView.m */,
 				8E5C5D501CB7786B00C5BB40 /* XCLInputWrapperView.h */,
 				8E5C5D511CB7786B00C5BB40 /* XCLInputWrapperView.m */,
 				8E5C5D521CB7786B00C5BB40 /* XCLInputWrapperViewSubclass.h */,
@@ -213,7 +208,6 @@
 			files = (
 				8E5C5D5E1CB779A600C5BB40 /* DMTableViewController.m in Sources */,
 				8E5C5D561CB7786B00C5BB40 /* XCLInputWrapperView.m in Sources */,
-				8E5C5D551CB7786B00C5BB40 /* XCLInputTextView.m in Sources */,
 				8E5C5D3E1CB777E600C5BB40 /* ViewController.m in Sources */,
 				8E5C5D3B1CB777E600C5BB40 /* AppDelegate.m in Sources */,
 				8E5C5D381CB777E600C5BB40 /* main.m in Sources */,

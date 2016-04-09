@@ -8,7 +8,6 @@
 
 #import "XCLInputWrapperView.h"
 
-@class XCLInputTextView;
 @protocol XCLInputWrapperViewInterface <NSObject>
 
 @required
@@ -16,7 +15,7 @@
 - (UIView *)inputBarView;
 // 在返回之前，保证inputTextView已经add到了inputBarView上
 // inputTextView需要添加上下左右的约束，高度约束不需要添加自动维护
-- (XCLInputTextView *)inputTextView;
+- (UITextView *)inputTextView;
 // 初始化默认值，或者添加其他view
 - (void)customConfig;
 

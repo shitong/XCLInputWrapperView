@@ -8,14 +8,13 @@
 
 #import "DMComplexInputWrapperView.h"
 #import "XCLInputWrapperViewSubclass.h"
-#import "XCLInputTextView.h"
 
 @interface DMComplexInputWrapperView () <XCLInputWrapperViewInterface>
 
 @property (strong, nonatomic) IBOutlet UIView           *complexInputBarView;
 @property (strong, nonatomic) IBOutlet UIView           *moreInputView;
 
-@property (weak, nonatomic  ) IBOutlet XCLInputTextView *myInputTextView;
+@property (weak, nonatomic  ) IBOutlet UITextView       *myInputTextView;
 @property (weak, nonatomic  ) IBOutlet UIButton         *bnVoice;
 @property (weak, nonatomic  ) IBOutlet UIButton         *bnSwitch;
 @property (weak, nonatomic  ) IBOutlet UIButton         *bnMore;
@@ -47,8 +46,22 @@
     return self.complexInputBarView;
 }
 
-- (XCLInputTextView *)inputTextView
+- (UITextView *)inputTextView
 {
+    self.myInputTextView.backgroundColor = [UIColor whiteColor];
+    self.myInputTextView.layer.cornerRadius = 5;
+    self.myInputTextView.layer.borderWidth = 0.5;
+    self.myInputTextView.layer.borderColor = [UIColor colorWithRed:178/255.0 green:178/255.0 blue:178/255.0 alpha:1].CGColor;
+    self.myInputTextView.backgroundColor = [UIColor clearColor];
+    self.myInputTextView.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1];
+    self.myInputTextView.font = [UIFont systemFontOfSize:16];
+    self.myInputTextView.returnKeyType = UIReturnKeySend;
+    
+    UIEdgeInsets insets = self.myInputTextView.textContainerInset;
+    insets.left = 8;
+    insets.right = 8;
+    [self.myInputTextView setTextContainerInset:insets];
+    [self.myInputTextView setContentInset:UIEdgeInsetsZero];
     return self.myInputTextView;
 }
 
