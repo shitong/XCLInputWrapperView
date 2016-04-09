@@ -15,7 +15,7 @@
 - (void)inputWrapperView:(XCLInputWrapperView *)inputWrapperView heightDidChanged:(CGFloat)height;
 - (BOOL)inputWrapperViewShouldBeginInputing:(XCLInputWrapperView *)XCLInputWrapperView;
 - (void)inputWrapperView:(XCLInputWrapperView *)inputWrapperView submitWithText:(NSString *)text;
-- (void)atInputtedWithinputWrapperView:(XCLInputWrapperView *)inputWrapperView;
+- (void)atInputtedWithInputWrapperView:(XCLInputWrapperView *)inputWrapperView;
 
 - (void)inputWrapperViewDidShowKeyboard:(XCLInputWrapperView *)inputWrapperView;
 - (void)inputWrapperViewDidShowInputView:(XCLInputWrapperView *)inputWrapperView;

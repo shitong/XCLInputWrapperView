@@ -12,14 +12,15 @@
 
 @interface DMComplexInputWrapperView () <XCLInputWrapperViewInterface>
 
+@property (strong, nonatomic) IBOutlet UIView           *complexInputBarView;
+@property (strong, nonatomic) IBOutlet UIView           *moreInputView;
 
-@property (weak, nonatomic) IBOutlet XCLInputTextView *myInputTextView;
-@property (weak, nonatomic) IBOutlet UIButton *bnVoice;
-@property (weak, nonatomic) IBOutlet UIButton *bnSwitch;
-@property (weak, nonatomic) IBOutlet UIButton *bnMore;
-
-@property (strong, nonatomic) IBOutlet UIView *complexInputBarView;
-@property (strong, nonatomic) IBOutlet UIView *moreInputView;
+@property (weak, nonatomic  ) IBOutlet XCLInputTextView *myInputTextView;
+@property (weak, nonatomic  ) IBOutlet UIButton         *bnVoice;
+@property (weak, nonatomic  ) IBOutlet UIButton         *bnSwitch;
+@property (weak, nonatomic  ) IBOutlet UIButton         *bnMore;
+@property (weak, nonatomic  ) IBOutlet UIButton         *bnCamera;
+@property (weak, nonatomic  ) IBOutlet UIButton         *bnPhoto;
 
 @end
 
@@ -53,7 +54,20 @@
 
 - (void)customConfig
 {
+    CGColorRef borderColor = [UIColor colorWithRed:178/255.0 green:178/255.0 blue:178/255.0 alpha:1].CGColor;
+    self.bnCamera.layer.cornerRadius = 5;
+    self.bnCamera.layer.borderWidth = 0.5;
+    self.bnCamera.layer.borderColor = borderColor;
+    
+    self.bnPhoto.layer.cornerRadius = 5;
+    self.bnPhoto.layer.borderWidth = 0.5;
+    self.bnPhoto.layer.borderColor = borderColor;
+    
     [self.bnVoice setTitle:@"按住说话" forState:UIControlStateNormal];
+    [self.bnVoice setTitle:@"松开结束" forState:UIControlStateHighlighted];
+    self.bnVoice.layer.cornerRadius = CGRectGetHeight(self.bnVoice.bounds)/2;
+    self.bnVoice.layer.borderWidth = 0.5;
+    self.bnVoice.layer.borderColor = borderColor;
     self.bnVoice.hidden = YES;
     self.myInputTextView.hidden = NO;
     self.customInputView = self.moreInputView;
@@ -74,12 +88,10 @@
     
     if (isShow) {
         [self setInputTextViewFixedHeight:self.inputTextViewMinHeight];
-        [self.bnSwitch setImage:[UIImage imageNamed:@"chat_button_keyboard"] forState:UIControlStateNormal];
-        [self.bnSwitch setImage:[UIImage imageNamed:@"chat_button_keyboard_hl"] forState:UIControlStateHighlighted];
+        [self.bnSwitch setImage:[UIImage imageNamed:@"icon_keyboard"] forState:UIControlStateNormal];
     } else {
         [self setInputTextViewHeightAuto];
-        [self.bnSwitch setImage:[UIImage imageNamed:@"chat_button_voice"] forState:UIControlStateNormal];
-        [self.bnSwitch setImage:[UIImage imageNamed:@"chat_button_voice_hl"] forState:UIControlStateHighlighted];
+        [self.bnSwitch setImage:[UIImage imageNamed:@"icon_voice"] forState:UIControlStateNormal];
     }
     
     self.bnVoice.hidden = !isShow;

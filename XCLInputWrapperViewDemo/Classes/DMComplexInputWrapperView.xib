@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DMComplexInputWrapperView">
             <connections>
+                <outlet property="bnCamera" destination="aBu-cj-lgi" id="L8h-PZ-tYh"/>
                 <outlet property="bnMore" destination="hzv-UA-6iw" id="lHO-GC-b7f"/>
+                <outlet property="bnPhoto" destination="rpN-yL-dO7" id="UP2-7l-bgJ"/>
                 <outlet property="bnSwitch" destination="yqH-V2-r46" id="T43-ep-d7R"/>
                 <outlet property="bnVoice" destination="gWA-FG-fdP" id="eIY-xa-wyb"/>
                 <outlet property="complexInputBarView" destination="iN0-l3-epB" id="4rt-7w-66S"/>
@@ -44,7 +45,7 @@
                         <constraint firstAttribute="width" constant="55" id="MZP-T6-duH"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                    <state key="normal" image="chat_button_voice">
+                    <state key="normal" image="icon_voice">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -57,7 +58,7 @@
                         <constraint firstAttribute="height" constant="50" id="Txw-oZ-Kd5"/>
                         <constraint firstAttribute="width" constant="55" id="cGf-WS-H8E"/>
                     </constraints>
-                    <state key="normal" image="icon_compose_bar_add">
+                    <state key="normal" image="icon_add">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="highlighted" image="icon_compose_bar_add_hl"/>
@@ -104,89 +105,46 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8z-Lx-fIL">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-cj-lgi">
-                            <rect key="frame" x="15" y="15" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="1du-BA-fnF"/>
-                                <constraint firstAttribute="width" secondItem="aBu-cj-lgi" secondAttribute="height" multiplier="1:1" id="XKM-OD-546"/>
-                            </constraints>
-                            <state key="normal" backgroundImage="icon_compose_bar_photo"/>
-                            <state key="highlighted" backgroundImage="icon_compose_bar_photo_hl"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpN-yL-dO7">
-                            <rect key="frame" x="90" y="15" width="60" height="60"/>
-                            <state key="normal" backgroundImage="icon_compose_bar_image"/>
-                            <state key="highlighted" backgroundImage="icon_compose_bar_image_hl"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irC-15-n6Y">
-                            <rect key="frame" x="165" y="15" width="60" height="60"/>
-                            <state key="normal" backgroundImage="icon_compose_bar_bounus"/>
-                            <state key="highlighted" backgroundImage="icon_compose_bar_bounus_hl"/>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-Vx-TjX">
-                            <rect key="frame" x="27" y="83" width="36" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpr-cc-IaV">
-                            <rect key="frame" x="102" y="83" width="36" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJf-fB-pNa">
-                            <rect key="frame" x="177" y="83" width="36" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fN-OK-UvJ" userLabel="line">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                            <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="1fX-19-i3f">
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="constant">
-                                            <real key="value" value="0.5"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </constraint>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpN-yL-dO7">
+                    <rect key="frame" x="105" y="16" width="60" height="60"/>
                     <constraints>
-                        <constraint firstItem="rpN-yL-dO7" firstAttribute="height" secondItem="aBu-cj-lgi" secondAttribute="height" id="6MD-JP-w2F"/>
-                        <constraint firstItem="Xpr-cc-IaV" firstAttribute="centerX" secondItem="rpN-yL-dO7" secondAttribute="centerX" id="78e-3v-sLQ"/>
-                        <constraint firstItem="irC-15-n6Y" firstAttribute="leading" secondItem="rpN-yL-dO7" secondAttribute="trailing" constant="15" id="88f-Nb-aFM"/>
-                        <constraint firstItem="kJf-fB-pNa" firstAttribute="top" secondItem="irC-15-n6Y" secondAttribute="bottom" constant="8" id="9Qr-jd-OCl"/>
-                        <constraint firstItem="xBG-Vx-TjX" firstAttribute="top" secondItem="aBu-cj-lgi" secondAttribute="bottom" constant="8" id="Ajx-00-tcc"/>
-                        <constraint firstItem="kJf-fB-pNa" firstAttribute="centerX" secondItem="irC-15-n6Y" secondAttribute="centerX" id="Jf1-s7-5Fz"/>
-                        <constraint firstItem="rpN-yL-dO7" firstAttribute="leading" secondItem="aBu-cj-lgi" secondAttribute="trailing" constant="15" id="LAe-y4-bKY"/>
-                        <constraint firstItem="aBu-cj-lgi" firstAttribute="leading" secondItem="a8z-Lx-fIL" secondAttribute="leading" constant="15" id="MUS-3g-guu"/>
-                        <constraint firstItem="5fN-OK-UvJ" firstAttribute="leading" secondItem="a8z-Lx-fIL" secondAttribute="leading" id="OPE-nF-YJC"/>
-                        <constraint firstItem="irC-15-n6Y" firstAttribute="centerY" secondItem="aBu-cj-lgi" secondAttribute="centerY" id="QXU-vw-8VJ"/>
-                        <constraint firstItem="rpN-yL-dO7" firstAttribute="width" secondItem="aBu-cj-lgi" secondAttribute="width" id="Rr5-cz-S5Y"/>
-                        <constraint firstItem="rpN-yL-dO7" firstAttribute="centerY" secondItem="aBu-cj-lgi" secondAttribute="centerY" id="Sej-H0-vln"/>
-                        <constraint firstAttribute="trailing" secondItem="5fN-OK-UvJ" secondAttribute="trailing" id="TmC-nJ-UHe"/>
-                        <constraint firstItem="Xpr-cc-IaV" firstAttribute="top" secondItem="rpN-yL-dO7" secondAttribute="bottom" constant="8" id="W6P-t6-OTU"/>
-                        <constraint firstItem="aBu-cj-lgi" firstAttribute="top" secondItem="a8z-Lx-fIL" secondAttribute="top" constant="15" id="eS3-hB-7fw"/>
-                        <constraint firstItem="xBG-Vx-TjX" firstAttribute="centerX" secondItem="aBu-cj-lgi" secondAttribute="centerX" id="ghl-4f-Ji9"/>
-                        <constraint firstItem="5fN-OK-UvJ" firstAttribute="top" secondItem="a8z-Lx-fIL" secondAttribute="top" id="jEP-cB-gAL"/>
-                        <constraint firstItem="irC-15-n6Y" firstAttribute="width" secondItem="aBu-cj-lgi" secondAttribute="width" id="zYK-yQ-7Sq"/>
-                        <constraint firstItem="irC-15-n6Y" firstAttribute="height" secondItem="aBu-cj-lgi" secondAttribute="height" id="zgZ-7L-lWT"/>
+                        <constraint firstAttribute="height" constant="60" id="cWY-XD-QSs"/>
+                        <constraint firstAttribute="width" constant="60" id="dhu-Ux-NT5"/>
+                    </constraints>
+                    <state key="normal" image="icon_photo"/>
+                    <state key="highlighted" backgroundImage="icon_compose_bar_image_hl"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fN-OK-UvJ" userLabel="line">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="1fX-19-i3f">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="constant">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBu-cj-lgi">
+                    <rect key="frame" x="15" y="16" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="D4O-Wz-yFe"/>
+                        <constraint firstAttribute="height" constant="60" id="Ot7-PC-agl"/>
+                    </constraints>
+                    <state key="normal" image="icon_camera"/>
+                    <state key="highlighted" backgroundImage="icon_compose_bar_photo_hl"/>
+                </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="a8z-Lx-fIL" secondAttribute="bottom" id="956-ck-gIU"/>
-                <constraint firstItem="a8z-Lx-fIL" firstAttribute="top" secondItem="aL6-lP-52i" secondAttribute="top" id="C5V-vO-ZnX"/>
-                <constraint firstItem="a8z-Lx-fIL" firstAttribute="leading" secondItem="aL6-lP-52i" secondAttribute="leading" id="WwG-50-fBI"/>
-                <constraint firstAttribute="trailing" secondItem="a8z-Lx-fIL" secondAttribute="trailing" id="aQa-Pm-423"/>
+                <constraint firstItem="aBu-cj-lgi" firstAttribute="leading" secondItem="aL6-lP-52i" secondAttribute="leading" constant="15" id="3Fc-Qa-YHz"/>
+                <constraint firstItem="rpN-yL-dO7" firstAttribute="leading" secondItem="aBu-cj-lgi" secondAttribute="trailing" constant="30" id="4sh-92-OND"/>
+                <constraint firstItem="aBu-cj-lgi" firstAttribute="centerY" secondItem="rpN-yL-dO7" secondAttribute="centerY" id="qM1-1Y-NkP"/>
+                <constraint firstItem="rpN-yL-dO7" firstAttribute="top" secondItem="5fN-OK-UvJ" secondAttribute="bottom" constant="15" id="qRX-8H-IMm"/>
+                <constraint firstAttribute="trailing" secondItem="5fN-OK-UvJ" secondAttribute="trailing" id="qoR-7M-BLn"/>
+                <constraint firstItem="5fN-OK-UvJ" firstAttribute="leading" secondItem="aL6-lP-52i" secondAttribute="leading" id="vkm-XJ-te6"/>
+                <constraint firstItem="5fN-OK-UvJ" firstAttribute="top" secondItem="aL6-lP-52i" secondAttribute="top" id="yJK-6D-Tpz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -196,14 +154,12 @@
     <resources>
         <image name="chat_button_record_background" width="34" height="35"/>
         <image name="chat_button_record_background_hl" width="47" height="35"/>
-        <image name="chat_button_voice" width="30" height="30"/>
-        <image name="icon_compose_bar_add" width="30" height="30"/>
+        <image name="icon_add" width="27" height="27"/>
+        <image name="icon_camera" width="38" height="32"/>
         <image name="icon_compose_bar_add_hl" width="30" height="30"/>
-        <image name="icon_compose_bar_bounus" width="60" height="60"/>
-        <image name="icon_compose_bar_bounus_hl" width="60" height="60"/>
-        <image name="icon_compose_bar_image" width="60" height="60"/>
         <image name="icon_compose_bar_image_hl" width="60" height="60"/>
-        <image name="icon_compose_bar_photo" width="60" height="60"/>
         <image name="icon_compose_bar_photo_hl" width="60" height="60"/>
+        <image name="icon_photo" width="38" height="38"/>
+        <image name="icon_voice" width="27" height="27"/>
     </resources>
 </document>

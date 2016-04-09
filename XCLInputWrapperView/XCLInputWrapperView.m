@@ -338,10 +338,10 @@
     if (self.enableAt) {
         
         if ([text isEqualToString:@"@"] ) {
-            if ([self.delegate respondsToSelector:@selector(atInputtedWithinputWrapperView:)]) {
+            if ([self.delegate respondsToSelector:@selector(atInputtedWithInputWrapperView:)]) {
                 textView.text = [textView.text stringByReplacingCharactersInRange:range withString:@"@"];
                 textView.selectedRange = NSMakeRange(range.location + 1, 0);
-                [self.delegate atInputtedWithinputWrapperView:self];
+                [self.delegate atInputtedWithInputWrapperView:self];
                 return NO;
             }
         } else if ([text isEqualToString:@""] && range.length == 1) {

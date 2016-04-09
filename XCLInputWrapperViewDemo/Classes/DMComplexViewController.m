@@ -66,7 +66,7 @@
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.items.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-- (void)atInputtedWithinputWrapperView:(XCLInputWrapperView *)inputWrapperView
+- (void)atInputtedWithInputWrapperView:(XCLInputWrapperView *)inputWrapperView
 {
     DMSelectAtStringViewController *controller = [[DMSelectAtStringViewController alloc] initWithDelegate:self];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
