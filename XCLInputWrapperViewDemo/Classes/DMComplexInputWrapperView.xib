@@ -36,7 +36,6 @@
                         <color key="titleColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted" backgroundImage="chat_button_record_background_hl"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqH-V2-r46" userLabel="switch">
                     <rect key="frame" x="0.0" y="0.0" width="55" height="50"/>
@@ -61,7 +60,6 @@
                     <state key="normal" image="icon_add">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="highlighted" image="icon_compose_bar_add_hl"/>
                     <connections>
                         <action selector="onMore:" destination="-1" eventType="touchUpInside" id="PPz-3E-23c"/>
                     </connections>
@@ -112,7 +110,6 @@
                         <constraint firstAttribute="width" constant="60" id="dhu-Ux-NT5"/>
                     </constraints>
                     <state key="normal" image="icon_photo"/>
-                    <state key="highlighted" backgroundImage="icon_compose_bar_image_hl"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fN-OK-UvJ" userLabel="line">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
@@ -134,7 +131,6 @@
                         <constraint firstAttribute="height" constant="60" id="Ot7-PC-agl"/>
                     </constraints>
                     <state key="normal" image="icon_camera"/>
-                    <state key="highlighted" backgroundImage="icon_compose_bar_photo_hl"/>
                 </button>
             </subviews>
             <constraints>
@@ -153,12 +149,8 @@
     </objects>
     <resources>
         <image name="chat_button_record_background" width="34" height="35"/>
-        <image name="chat_button_record_background_hl" width="47" height="35"/>
         <image name="icon_add" width="27" height="27"/>
         <image name="icon_camera" width="38" height="32"/>
-        <image name="icon_compose_bar_add_hl" width="30" height="30"/>
-        <image name="icon_compose_bar_image_hl" width="60" height="60"/>
-        <image name="icon_compose_bar_photo_hl" width="60" height="60"/>
         <image name="icon_photo" width="38" height="38"/>
         <image name="icon_voice" width="27" height="27"/>
     </resources>
