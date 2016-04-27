@@ -304,6 +304,9 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
+    // 通过点击输入框弹出键盘后，需要设置pri_isShowKeyboard为YES
+    self.pri_isShowKeyboard = YES;
+    
     if (self.pri_isShowCustomInputView) {
         // 弹出键盘后，需要设置pri_isShowCustomInputView为NO
         self.pri_isShowCustomInputView = NO;
@@ -317,9 +320,6 @@
             [self.delegate inputWrapperViewDidHideInputView:self];
         }
     }
-    
-    // 通过点击输入框弹出键盘后，需要设置pri_isShowKeyboard为YES
-    self.pri_isShowKeyboard = YES;
     
     if ([self.pri_child respondsToSelector:@selector(didShowKeyboard)]) {
         [self.pri_child didShowKeyboard];
@@ -649,6 +649,12 @@
     
     [self insertSubview:_customInputView belowSubview:self];
     [self customInputViewAddConstraints];
+}
+
+- (void)setCustomInputViewBackViewBackgroundColor:(UIColor *)customInputViewBackViewBackgroundColor
+{
+    _customInputViewBackViewBackgroundColor = customInputViewBackViewBackgroundColor;
+    self.pri_backView.backgroundColor = _customInputViewBackViewBackgroundColor;
 }
 
 @end
